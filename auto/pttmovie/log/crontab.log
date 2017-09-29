@@ -1,0 +1,7 @@
+  File "auto_crawler.py", line 45
+    with open(p'now_index.txt', 'w') as f:
+                             ^
+SyntaxError: invalid syntax
+Processing index: 5865
+Processing article: M.1506177378.A.30F
+Processing article: M.1506177485.A.1ED
