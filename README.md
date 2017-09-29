@@ -42,8 +42,8 @@ script_log.txt 由 auto_crawler.py 判斷是否該寫入 (e.g. 有更新或是�
 crontab.log 由 corntab -e 執行排程所寫入，判斷定時排程是否正確  
 
 #### 其他
-test_auto_crawler.ipynb 用 jupyter notebook 來測試程式碼和指令  
- pickle & images folder 存放爬蟲爬到的資料  
+test_auto_crawler.ipynb 用 jupyter notebook 來測試程式碼和指令  
+pickle & images folder 存放爬蟲爬到的資料  
  
 ## search_example.ipynb
 用 Elasticsearch 搜尋的語法和結果  
