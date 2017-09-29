@@ -1,6 +1,6 @@
 # ES_pttmovie
 Use Elasticsearch and Kibana to built ptt movie search service  
-以此紀錄用Elasticsearch 和 Kibana建立的ptt movie的搜尋服務  
+以此紀錄用Elasticsearch 和 Kibana建立的ptt movie的搜尋服務  
 資料來源 ： ptt movie板 和 yahoo movie的電影資訊  
 
 ## auto資料夾 ( pttmovie, yahoo )
