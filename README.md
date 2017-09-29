@@ -24,7 +24,7 @@ json folder 存放爬蟲爬到的資料
 
 #### log
 script_log.txt 由 auto_crawler.py 判斷是否該寫入 (e.g. 有更新或是沒更新都把紀錄寫進去)  
-crontab.log 由 corntab -e 執行排程所寫入，判斷定時排成是否正確  
+crontab.log 由 corntab -e 執行排程所寫入，判斷定時排程是否正確  
 
 #### 其他
 pttmovie_allinsert.py 輸入 path 可以把所有資料 insert 到 Elasticsearch  
@@ -39,7 +39,7 @@ now_index.txt 紀錄目前最新的 index ，若是有新資料 auto_crawler.py 
 
 #### log
 script_log.txt 由 auto_crawler.py 判斷是否該寫入 (e.g. 有更新或是沒更新都把紀錄寫進去)  
-crontab.log 由 corntab -e 執行排程所寫入，判斷定時排成是否正確  
+crontab.log 由 corntab -e 執行排程所寫入，判斷定時排程是否正確  
 
 #### 其他
 test_auto_crawler.ipynb 用 jupyter notebook 來測試程式碼和指令  
