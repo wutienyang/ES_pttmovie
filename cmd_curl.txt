@@ -1,0 +1,77 @@
+# 打開 shell 輸入即可
+
+# put mapping ptt movie (type nested(json array) 和 type object(single json) "ignore_malformed": true)
+curl -XPUT 'http://teadaiegpu1.hopto.org:9200/pttmovie?pretty' -H 'Content-Type: application/json' -d'
+{
+    "mappings" : {
+        "content" : {
+            "properties" : {
+                "article_title" : { "type" : "text" },
+                "message_conut" : { "type" : "object", "properties": { "all" : {"type":"integer"}, "boo":{"type":"integer"}, "count":{"type":"integer"}, "neutral":{"type":"integer"}, "push":{"type":"integer"} }},
+                "author" : { "type" : "text" },
+                "url" : { "type" : "text" },
+                "ip" : { "type" : "ip","ignore_malformed": true},
+                "messages" : { "type" : "nested", "properties": { "push_content" : {"type":"text"}, "push_ipdatetime":{"type":"text"}, "push_tag":{"type":"text"}, "push_userid":{"type":"text"}}},
+                "content" : { "type" : "text" },
+                "board" : { "type" : "text" },
+                "date" : { "type" : "date", "format": "yyyy-MM-dd HH:mm:ss","ignore_malformed": true },
+                "week" : { "type" : "text" },
+                "article_id" : { "type" : "text" }            
+            }
+        }
+    }
+}
+'
+
+# delete
+curl -XDELETE 'teadaiegpu1.hopto.org:9200/pttmovie?pretty'
+
+# count 
+curl -XGET 'teadaiegpu1.hopto.org:9200/pttmovie/content/_count?pretty'
+
+# get mapping
+curl -XGET 'teadaiegpu1.hopto.org:9200/pttmovie/_mapping/content?pretty'
+
+# query match_phrase
+curl -XGET "http://teadaiegpu1.hopto.org:9200/movie/content/_search" -H 'Content-Type: application/json' -d'
+{
+    "query": {
+        "match_phrase" : {
+            "article_title" : "黑塔"
+        }
+    }
+}'
+
+# query json array 查詢每個推文的某id
+curl -XGET "http://teadaiegpu1.hopto.org:9200/movie/content/_search" -H 'Content-Type: application/json' -d'
+{
+  "nested": {
+    "path": "messages",
+    "query": {
+      "match": {
+        "messages.push_userid": "hmt17"
+      }
+    }
+  }
+}
+
+# yahoo movie put mapping
+curl -XPUT 'http://teadaiegpu1.hopto.org:9200/yahoomovie?pretty' -H 'Content-Type: application/json' -d'
+{
+    "mappings" : {
+        "content" : {
+            "properties" : {
+                "name_zh" : { "type" : "text"},
+                "name_en" : { "type" : "text"},
+                "company" : { "type" : "text"},
+                "actor" : { "type" : "text"},
+                "director" : { "type" : "text"},
+                "create date" : { "type" : "date", "format": "yyyy-MM-dd","ignore_malformed": true  },
+                "movie time" : { "type" : "text"},
+                "IMDb" : { "type" : "float","ignore_malformed": true  },
+                "url" : { "type" : "text"}           
+            }
+        }
+    }
+}
+'
