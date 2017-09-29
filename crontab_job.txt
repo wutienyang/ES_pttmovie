@@ -1,0 +1,2 @@
+10 8 * * * cd /home/yang/notebook/ptt-web-crawler/PttWebCrawler/auto/pttmovie && /home/yang/anaconda2/envs/python2/bin/python auto_crawler.py >> ./log/crontab.log 2>&1
+12 8 * * * cd /home/yang/notebook/ptt-web-crawler/PttWebCrawler/auto/yahoomovie && /home/yang/anaconda2/envs/python2/bin/python auto_crawler.py >> ./log/crontab.log 2>&1
