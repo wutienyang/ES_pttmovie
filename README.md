@@ -2,6 +2,18 @@
 Use Elasticsearch and Kibana to built ptt movie search service  
 以此紀錄用Elasticsearch 和 Kibana建立的ptt movie的搜尋服務  
 資料來源 ： ptt movie板 和 yahoo movie的電影資訊  
+## 開啟 elasticsearch & kibana
+更改 elasticsearch ip  
+`vim config/elasticsearch.yml`  
+network.host : your ip  
+更改 kibana ip  
+`vim config/kibana.yml`  
+server.host : your ip  
+elasticsearch.url: "http://yourip:9200/"  
+1. bin/elasticsearch
+2. bin/kibana  
+
+p.s kibana 是透過 elasticsearch.url 去讀 elasticsearch 的資料  
 
 ## pttscore folder
 ### module
